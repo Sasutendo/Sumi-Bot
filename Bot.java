@@ -6,7 +6,6 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import rest.*;
 
 import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
@@ -34,11 +33,6 @@ public class Bot {
         build.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.DIRECT_MESSAGE_TYPING, GatewayIntent.DIRECT_MESSAGES, GatewayIntent.MESSAGE_CONTENT);
 
         EnumSet<CacheFlag> enumSet = EnumSet.of(CacheFlag.ONLINE_STATUS, CacheFlag.CLIENT_STATUS, CacheFlag.EMOJI, CacheFlag.VOICE_STATE);
-
-        build.addEventListeners(new Message());
-        build.addEventListeners(new welcome());
-        build.addEventListeners(new view());
-        build.addEventListeners(new Admin());
 
         JDA bot = bauplan.build();
         System.out.println("Bot is Online");
